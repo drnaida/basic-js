@@ -7,10 +7,9 @@ module.exports = function transform(arr) {
       } else if (arr[i] == '--discard-prev') {
         result.pop();
       } else if (arr[i] == '--double-next') {
-        result.push(arr[i+1]*2);
-        i++;
+        result.push(arr[i + 1])
       } else if (arr[i] == '--double-prev') {
-        result[i - 1] = result[i - 1] + result[i - 1];
+         result.push(arr[i - 1]);
       } else {
         result.push(arr[i]);
       }
@@ -18,5 +17,5 @@ module.exports = function transform(arr) {
   } else {
     throw new Error;
   }
-  return result;
+  return result.filter(e => e !== undefined);
 };
